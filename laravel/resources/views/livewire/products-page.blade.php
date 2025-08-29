@@ -2,7 +2,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Header -->
         <div class="mb-8">
-            <h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-2 transition-colors duration-300">Our Products</h1>
+            <h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-2 transition-colors duration-300">Welcome to Oxylabs Product Crawler</h1>
             <p class="text-gray-600 dark:text-gray-300 transition-colors duration-300">Discover amazing products with dynamic search and filtering</p>
         </div>
 
