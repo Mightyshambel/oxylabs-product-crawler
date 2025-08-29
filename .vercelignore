@@ -1,0 +1,33 @@
+# Laravel specific
+laravel/storage/
+laravel/bootstrap/cache/
+laravel/node_modules/
+laravel/vendor/
+laravel/.env
+laravel/.env.*
+laravel/phpunit.xml
+laravel/database/
+laravel/tests/
+
+# Git
+.git/
+.gitignore
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Build artifacts
+laravel/public/build/
+laravel/public/hot
+laravel/public/storage
+
+# Crawler files (not needed for web deployment)
+crawler-php/
