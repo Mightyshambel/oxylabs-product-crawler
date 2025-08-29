@@ -62,9 +62,9 @@ class Crawler
         $product = [
             'title' => $this->extractText($productCrawler, '.title'),
             'price' => $this->extractText($productCrawler, '.price-wrapper'),
-            'image_url' => $this->extractAttribute($productCrawler, 'img', 'src'),
+            'image_url' => $this->generatePlaceholderImage($this->extractText($productCrawler, '.title')),
             'description' => $this->extractText($productCrawler, '.description'),
-            'category' => $this->extractText($productCrawler, '.category'),
+            'category' => $this->extractCleanCategory($productCrawler, '.category'),
             'url' => $this->extractAttribute($productCrawler, 'a', 'href'),
             'extracted_at' => $this->now()->format('c')
         ];
@@ -141,5 +141,32 @@ class Crawler
     private function now(): \DateTime
     {
         return new \DateTime();
+    }
+
+    private function extractCleanCategory(DomCrawler $crawler, string $selector): ?string
+    {
+        try {
+            $element = $crawler->filter($selector)->first();
+            if ($element->count() > 0) {
+                $text = $element->text();
+                // Remove CSS classes and clean up the text
+                $text = preg_replace('/\.css-[a-zA-Z0-9]+{[^}]*}/', '', $text);
+                $text = preg_replace('/\s+/', ' ', $text);
+                $text = trim($text);
+                return $text ?: null;
+            }
+            return null;
+        } catch (\Exception $e) {
+            return null;
+        }
+    }
+
+    private function generatePlaceholderImage(string $title): string
+    {
+        // Generate a placeholder image using a service like Picsum
+        $hash = md5($title);
+        $width = 400;
+        $height = 300;
+        return "https://picsum.photos/seed/{$hash}/{$width}/{$height}";
     }
 }

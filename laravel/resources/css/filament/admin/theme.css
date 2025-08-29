@@ -1,0 +1,20 @@
+@import '../../../../vendor/filament/filament/resources/css/theme.css';
+
+/* Custom Footer for Admin Panel */
+.filament-main-content::after {
+    content: "© 2025 The Almighty";
+    display: block;
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+    color: #9333ea;
+    border-top: 1px solid #e5e7eb;
+    margin-top: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+/* Dark mode support */
+.dark .filament-main-content::after {
+    border-top-color: #374151;
+    background-color: rgba(31, 41, 55, 0.8);
+}

@@ -7,3 +7,7 @@ Route::get('/', function () {
 });
 
 Route::post('/api/import', [App\Http\Controllers\Api\ImportController::class, 'import']);
+
+Route::get('/view/products', function () {
+    return view('products');
+});
