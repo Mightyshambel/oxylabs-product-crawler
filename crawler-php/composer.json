@@ -1,0 +1,19 @@
+{
+    "name": "oxylabs/crawler",
+    "description": "Product data crawler",
+    "type": "project",
+    "require": {
+        "php": "^8.2",
+        "guzzlehttp/guzzle": "^7.0",
+        "symfony/dom-crawler": "^7.0",
+        "symfony/css-selector": "^7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "scripts": {
+        "crawl": "php src/crawler.php"
+    }
+}
