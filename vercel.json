@@ -3,7 +3,7 @@
   "builds": [
     {
       "src": "laravel/public/index.php",
-      "use": "@vercel/php"
+      "use": "@vercel/php@0.6.0"
     }
   ],
   "routes": [
@@ -27,10 +27,5 @@
     "SESSION_DRIVER": "cookie",
     "SESSION_LIFETIME": "120",
     "QUEUE_CONNECTION": "sync"
-  },
-  "functions": {
-    "laravel/public/index.php": {
-      "runtime": "vercel-php@0.6.0"
-    }
   }
 }
