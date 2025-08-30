@@ -15,26 +15,27 @@ This project implements a complete product data management system with web scrap
 
 **🌍 Production URL**: [https://oxylabs-product-crawler-ncod.vercel.app](https://oxylabs-product-crawler-ncod.vercel.app)
 
-## 🏗️ Architecture
+## 📁 Project Structure
 
 ```
-┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
-│   PHP Crawler   │───▶│  Laravel API    │───▶│   Database      │
-│                 │    │                 │    │   (SQLite)      │
-└─────────────────┘    └─────────────────┘    └─────────────────┘
-                                │
-                                ▼
-                       ┌─────────────────┐
-                       │  Filament Admin │
-                       │                 │
-                       └─────────────────┘
-                                │
-                                ▼
-                       ┌─────────────────┐
-                       │ Livewire +      │
-                       │ AlpineJS Front  │
-                       │                 │
-                       └─────────────────┘
+oxylabs-product-crawler/
+├── crawler-php/                 # PHP Web Scraper
+│   ├── src/
+│   │   └── Crawler.php         # Main crawler class
+│   ├── composer.json            # PHP dependencies
+│   └── crawler.php             # Execution script
+├── laravel/                     # Laravel Application
+│   ├── app/
+│   │   ├── Models/             # Eloquent models
+│   │   ├── Jobs/               # Queue jobs
+│   │   ├── Http/Controllers/   # API controllers
+│   │   └── Filament/           # Admin panel resources
+│   ├── database/
+│   │   └── migrations/         # Database schema
+│   ├── resources/views/        # Blade templates
+│   └── routes/                 # Application routes
+├── vercel.json                  # Vercel deployment config
+└── README.md                    # Project documentation
 ```
 
 ## ✅ Features Implemented
@@ -191,6 +192,5 @@ This project is created for technical evaluation purposes.
 
 ---
 
-**Built with ❤️ using Laravel, Filament, Livewire, and AlpineJS**
 
 **Live Demo**: [https://oxylabs-product-crawler-ncod.vercel.app](https://oxylabs-product-crawler-ncod.vercel.app)
