@@ -11,73 +11,44 @@ This project implements a complete product data management system with web scrap
 - **URL**: `https://sandbox.oxylabs.io/products`
 - **Data Extracted**: title, price, image_url, description, category, url, extracted_at
 
+## 🚀 Live Demo
+
+**🌍 Production URL**: [https://oxylabs-product-crawler-ncod.vercel.app](https://oxylabs-product-crawler-ncod.vercel.app)
+
 ## 🏗️ Architecture
 
 ```
 ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
 │   PHP Crawler   │───▶│  Laravel API    │───▶│   Database      │
-│   (Step 1)      │    │   (Step 2)      │    │   (SQLite)      │
+│                 │    │                 │    │   (SQLite)      │
 └─────────────────┘    └─────────────────┘    └─────────────────┘
                                 │
                                 ▼
                        ┌─────────────────┐
                        │  Filament Admin │
-                       │   (Step 3)      │
+                       │                 │
                        └─────────────────┘
                                 │
                                 ▼
                        ┌─────────────────┐
                        │ Livewire +      │
                        │ AlpineJS Front  │
-                       │   (Step 4)      │
+                       │                 │
                        └─────────────────┘
 ```
 
-## ✅ Implementation Progress
+## ✅ Features Implemented
 
-### Step 1: PHP Crawler ✅
-- **Status**: Complete & Tested
-- **Features**:
-  - Web scraping using Guzzle HTTP + Symfony DomCrawler
-  - Data extraction from Oxylabs sandbox
-  - JSON export format
-  - Error handling and validation
-- **Files**: `crawler-php/`
-- **Output**: 32 products extracted successfully
-
-### Step 2: Laravel Backend ✅
-- **Status**: Complete & Tested
-- **Features**:
-  - Product and Image Eloquent models with relationships
-  - Database migrations and schema
-  - Queue system for asynchronous import
-  - ImportProductsJob for background processing
-  - POST /api/import endpoint with validation
-  - Error handling and logging
-- **Files**: `laravel/app/Models/`, `laravel/app/Jobs/`, `laravel/app/Http/Controllers/`
-- **Database**: SQLite with proper relationships
-
-### Step 3: Filament Admin Panel ✅
-- **Status**: Complete & Tested
-- **Features**:
-  - Professional admin interface at `/admin`
-  - ProductResource with full CRUD operations
-  - ImagesRelationManager for image management
-  - Product listing with image previews
-  - Search, filtering, and sorting capabilities
-  - Responsive design with TailwindCSS
-- **Files**: `laravel/app/Filament/`
-- **Access**: admin@example.com / password
-
-### Step 4: Livewire + AlpineJS Frontend 🚧
-- **Status**: In Progress
-- **Planned Features**:
-  - Public products page at `/view/products`
-  - Pagination (25 products per page)
-  - Sorting by date, price, category
-  - Dynamic interactions with Livewire
-  - Responsive design with AlpineJS
-  - Real-time updates without page reload
+- **Web Scraping**: PHP crawler using Guzzle HTTP + Symfony DomCrawler
+- **Laravel Backend**: Product and Image models with Eloquent relationships
+- **Asynchronous Processing**: Queue system with background jobs
+- **Admin Panel**: Professional Filament interface with full CRUD operations
+- **Dynamic Frontend**: Livewire + AlpineJS with responsive design
+- **Theme System**: Dark/Light mode toggle with purple accent colors
+- **Search & Filtering**: Advanced product discovery capabilities
+- **Image Management**: Product image handling with relationships
+- **API Endpoints**: RESTful API for data import and management
+- **Responsive Design**: Mobile-first approach with TailwindCSS
 
 ## 🚀 Quick Start
 
@@ -137,6 +108,12 @@ php artisan tinker
 - Create, edit, delete products
 - Manage product images
 
+### Frontend Test
+- Visit the homepage `/`
+- Test dark/light mode toggle
+- Test search and filtering
+- Test pagination and sorting
+
 ## 📊 Technical Stack
 
 | Component | Technology | Version |
@@ -149,6 +126,7 @@ php artisan tinker
 | **Queue System** | Laravel Queues | Built-in |
 | **HTTP Client** | Guzzle | 7.0+ |
 | **Web Scraping** | Symfony DomCrawler | 7.0+ |
+| **Deployment** | Vercel | Serverless |
 
 ## 🔧 Key Features
 
@@ -159,6 +137,8 @@ php artisan tinker
 - **Data Validation**: Comprehensive input validation and error handling
 - **Image Management**: Product image handling with relationships
 - **Search & Filter**: Advanced product discovery features
+- **Theme System**: Dark/Light mode with purple accent colors
+- **Custom Footer**: Branded footer across all pages
 
 ## 📝 API Endpoints
 
@@ -166,7 +146,7 @@ php artisan tinker
 |--------|----------|-------------|
 | `POST` | `/api/import` | Import products from JSON data |
 | `GET` | `/admin` | Admin panel access |
-| `GET` | `/view/products` | Public products page (planned) |
+| `GET` | `/` | Public products page (homepage) |
 
 ## 🎨 UI/UX Features
 
@@ -176,17 +156,22 @@ php artisan tinker
 - **Image Previews**: Circular product image thumbnails
 - **Sorting Controls**: Intuitive data organization
 - **Search Functionality**: Quick product discovery
+- **Theme Toggle**: Sun/Moon icons for mode switching
+- **Purple Accent**: Consistent branding throughout
+- **Custom Footer**: "© 2025 The Almighty" with purple styling
 
-## 🚧 Roadmap
+## 🚀 Deployment
 
-- [x] PHP Crawler implementation
-- [x] Laravel backend with models and API
-- [x] Filament admin panel
-- [ ] Livewire + AlpineJS frontend
-- [ ] Advanced filtering and search
-- [ ] User authentication system
-- [ ] API rate limiting
-- [ ] Performance optimization
+### Vercel Deployment
+- **Status**: ✅ Successfully Deployed
+- **URL**: https://oxylabs-product-crawler-ncod.vercel.app
+- **Configuration**: `vercel.json` with PHP runtime
+- **Entry Point**: `api/index.php` for serverless functions
+
+### Local Development
+- **Port**: 8000 (Laravel Artisan serve)
+- **Database**: SQLite for development
+- **Environment**: `.env` configuration
 
 ## 📚 Documentation
 
@@ -194,6 +179,7 @@ php artisan tinker
 - **Laravel**: See `laravel/README.md`
 - **API**: Inline code documentation
 - **Admin Panel**: Filament documentation
+- **Deployment**: Vercel configuration in `vercel.json`
 
 ## 🤝 Contributing
 
@@ -206,3 +192,5 @@ This project is created for technical evaluation purposes.
 ---
 
 **Built with ❤️ using Laravel, Filament, Livewire, and AlpineJS**
+
+**Live Demo**: [https://oxylabs-product-crawler-ncod.vercel.app](https://oxylabs-product-crawler-ncod.vercel.app)
